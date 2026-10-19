@@ -1,0 +1,1450 @@
+/* ==========================================================================
+   Dr. Naveena's Skin Clinic — Design System & Stylesheet
+   Theme: Unified Luxury Clinical Aesthetics (Single Cohesive Canvas)
+   ========================================================================== */
+
+:root {
+  /* Unified Background Canvas — No alternating stripe blocks */
+  --bg-page: #faf8f9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-subtle: #f5edf1;
+
+  /* Refined Medical & Aesthetic Brand Palette */
+  --primary: #c93b74;
+  --primary-hover: #b02a60;
+  --primary-light: #fff0f5;
+  --primary-subtle: #fbebf1;
+  --primary-gradient: linear-gradient(135deg, #d84581 0%, #ba2d66 100%);
+  --primary-glow: rgba(201, 59, 116, 0.18);
+
+  /* Secondary & Neutral Accents */
+  --accent-gold: #c59b27;
+  --accent-gold-soft: #fcf6e8;
+  --slate-900: #141f2c;
+  --slate-800: #1e2d3d;
+  --slate-700: #334454;
+  --slate-600: #4a5c6e;
+  --slate-500: #627486;
+  --slate-400: #8899a8;
+  --slate-200: #e2e8ee;
+
+  /* Borders & Lines */
+  --border-delicate: rgba(218, 194, 204, 0.55);
+  --border-focus: rgba(201, 59, 116, 0.4);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(20, 31, 44, 0.04);
+  --shadow-md: 0 8px 24px rgba(20, 31, 44, 0.06), 0 2px 6px rgba(201, 59, 116, 0.03);
+  --shadow-lg: 0 16px 40px rgba(20, 31, 44, 0.08), 0 4px 12px rgba(201, 59, 116, 0.05);
+  --shadow-hero-photo: 0 20px 48px rgba(30, 45, 61, 0.12), 0 8px 20px rgba(201, 59, 116, 0.08);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Typography */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Container width */
+  --container-max: 1200px;
+}
+
+/* Base Reset & Typography */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  background-color: var(--bg-page);
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--slate-700);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* ==========================================================================
+   Top Demo Notice Bar
+   ========================================================================== */
+.demo-banner {
+  text-align: center;
+  background-color: #f7e6ee;
+  color: #922252;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 7px 16px;
+  border-bottom: 1px solid rgba(201, 59, 116, 0.15);
+}
+
+/* ==========================================================================
+   Navigation Header
+   ========================================================================== */
+.site-header {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 max(5vw, 24px);
+  background: rgba(250, 248, 249, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border-delicate);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  border: 1px solid rgba(201, 59, 116, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(201, 59, 116, 0.08);
+}
+
+.brand-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--slate-900);
+  line-height: 1.15;
+}
+
+.brand-subtitle {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+  font-size: 10px;
+  color: var(--slate-500);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-600);
+  padding: 8px 2px;
+  position: relative;
+  letter-spacing: 0.2px;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--primary);
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: var(--primary);
+  border-radius: var(--radius-full);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.phone-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-800);
+  padding: 8px 14px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  transition: all 0.2s ease;
+}
+
+.phone-link:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.phone-link svg {
+  width: 15px;
+  height: 15px;
+  color: var(--primary);
+}
+
+.header-cta,
+.button {
+  background: var(--primary-gradient);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.header-cta {
+  padding: 10px 18px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.button:hover,
+.header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(201, 59, 116, 0.3);
+  color: #ffffff;
+}
+
+.button-secondary,
+.outline-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-surface);
+  color: var(--slate-800);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-full);
+  padding: 11px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.button-secondary:hover,
+.outline-button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.menu-toggle {
+  display: none;
+  border: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-md);
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  color: var(--primary);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Shared Section Layout & Typography (Equal unified page styling)
+   ========================================================================== */
+.section {
+  padding: 72px max(5vw, 24px);
+  position: relative;
+  /* Crucial: All sections maintain the unified page background */
+  background-color: var(--bg-page);
+}
+
+.section-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.eyebrow.pill {
+  background: var(--primary-light);
+  border: 1px solid rgba(201, 59, 116, 0.2);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(34px, 4.2vw, 52px);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--slate-900);
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: var(--primary);
+  font-style: italic;
+  font-weight: 600;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--slate-900);
+  margin-bottom: 14px;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--slate-900);
+  margin-bottom: 8px;
+}
+
+p.section-desc {
+  color: var(--slate-600);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   Hero Section & Clean Doctor Portrait
+   ========================================================================== */
+.hero {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  background-color: var(--bg-page);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent glow to make page feel alive and luminous */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(216, 69, 129, 0.08) 0%, rgba(250, 248, 249, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr;
+  align-items: center;
+  gap: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-copy p {
+  color: var(--slate-600);
+  font-size: 16px;
+  line-height: 1.75;
+  margin-bottom: 30px;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 38px;
+}
+
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-delicate);
+  width: 100%;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.trust-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.trust-icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.trust-item span {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-800);
+  line-height: 1.25;
+}
+
+.trust-item small {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--slate-500);
+}
+
+/* Hero Doctor Portrait Presentation — Pristine & Clear */
+.hero-portrait-card {
+  position: relative;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.portrait-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  background: #ffffff;
+  padding: 12px;
+  box-shadow: var(--shadow-hero-photo);
+  border: 1px solid var(--border-delicate);
+}
+
+.portrait-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  border-radius: calc(var(--radius-xl) - 8px);
+  overflow: hidden;
+  background-color: #f6eef2;
+}
+
+/* NO multiply blend mode! Natural, crisp, perfectly lit portrait */
+.portrait-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 16%;
+  transform: scale(1.01);
+  transition: transform 0.4s ease;
+}
+
+.hero-portrait-card:hover .portrait-image-wrapper img {
+  transform: scale(1.03);
+}
+
+/* Floating Clean Badges (Placed so they NEVER obstruct her face or smile) */
+.doctor-floating-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 3;
+}
+
+.badge-doctor-info {
+  bottom: 24px;
+  left: -20px;
+}
+
+.badge-doctor-rating {
+  top: 28px;
+  right: -16px;
+}
+
+.badge-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-icon-box.gold {
+  background: var(--accent-gold-soft);
+  color: var(--accent-gold);
+}
+
+.badge-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.badge-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-900);
+  line-height: 1.2;
+}
+
+.badge-text span {
+  display: block;
+  font-size: 11px;
+  color: var(--slate-500);
+}
+
+/* ==========================================================================
+   About The Doctor Section (Equal background with clean elevated surface)
+   ========================================================================== */
+.about-card-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.about-photo-frame {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--primary-subtle);
+  border: 1px solid var(--border-delicate);
+  box-shadow: var(--shadow-sm);
+}
+
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.credentials-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  width: fit-content;
+  border: 1px solid rgba(201, 59, 116, 0.15);
+}
+
+.about-content p {
+  color: var(--slate-600);
+  font-size: 14.5px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.specialty-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0 24px;
+}
+
+.specialty-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate-800);
+  background: var(--bg-page);
+  border: 1px solid var(--border-delicate);
+  padding: 7px 14px;
+  border-radius: var(--radius-full);
+  transition: border-color 0.2s ease;
+}
+
+.specialty-tag:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.specialty-tag svg {
+  width: 14px;
+  height: 14px;
+  color: var(--primary);
+}
+
+.doctor-quote {
+  margin-top: 10px;
+  padding: 18px 22px;
+  border-left: 3px solid var(--primary);
+  background: var(--bg-page);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  color: var(--slate-800);
+  line-height: 1.6;
+}
+
+.doctor-quote cite {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 8px;
+}
+
+/* ==========================================================================
+   Services Section (Clean Elevated Cards on Unified Page Canvas)
+   ========================================================================== */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: rgba(201, 59, 116, 0.4);
+}
+
+.service-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  border: 1px solid rgba(201, 59, 116, 0.15);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.service-card:hover .service-icon-box {
+  transform: scale(1.08);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.service-icon-box svg {
+  width: 26px;
+  height: 26px;
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--slate-600);
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.service-bullets {
+  list-style: none;
+  margin-bottom: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-delicate);
+}
+
+.service-bullets li {
+  font-size: 12px;
+  color: var(--slate-600);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.service-bullets li::before {
+  content: "•";
+  color: var(--primary);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: auto;
+  transition: gap 0.2s ease;
+}
+
+.service-card:hover .service-link {
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Reviews / Patient Feedback (Unified page canvas with sleek review cards)
+   ========================================================================== */
+.review-header-flex {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.rating-overview-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-md);
+  padding: 14px 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.google-logo-box {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  background: conic-gradient(#4285f4 0 25%, #34a853 0 50%, #fbbc05 0 72%, #ea4335 0);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.rating-text strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--slate-900);
+}
+
+.rating-text small {
+  font-size: 11px;
+  color: var(--slate-500);
+}
+
+.rating-link {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+}
+
+.rating-link:hover {
+  text-decoration: underline;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.author-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-subtle);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.author-avatar.purple {
+  background: #f0eef9;
+  color: #614eb5;
+}
+
+.author-avatar.teal {
+  background: #e9f6f5;
+  color: #17897d;
+}
+
+.author-details strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--slate-900);
+}
+
+.author-details small {
+  font-size: 11px;
+  color: var(--slate-500);
+}
+
+.review-stars {
+  display: flex;
+  gap: 3px;
+  color: #f5a623;
+  margin-bottom: 14px;
+}
+
+.review-stars svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.review-card p {
+  color: var(--slate-700);
+  font-size: 13.5px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--slate-400);
+  padding-top: 14px;
+  border-top: 1px solid var(--border-delicate);
+}
+
+/* ==========================================================================
+   Clinic Highlights & Educational Insights (Replaces raw blocks)
+   ========================================================================== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.gallery-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(201, 59, 116, 0.35);
+}
+
+.gallery-badge {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 12px;
+  letter-spacing: 0.8px;
+}
+
+.gallery-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.gallery-card p {
+  font-size: 13px;
+  color: var(--slate-600);
+  line-height: 1.6;
+}
+
+.gallery-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-gradient);
+}
+
+/* ==========================================================================
+   Contact & Appointment Booking (Equal unified layout)
+   ========================================================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.25fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-info-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--shadow-sm);
+}
+
+.contact-info-card h2 {
+  margin-bottom: 12px;
+}
+
+.contact-info-card p.intro {
+  color: var(--slate-600);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.contact-detail-list {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 34px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-item-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.contact-item-text strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--slate-900);
+  margin-bottom: 3px;
+}
+
+.contact-item-text p,
+.contact-item-text a {
+  font-size: 13px;
+  color: var(--slate-600);
+  line-height: 1.5;
+}
+
+.contact-item-text a:hover {
+  color: var(--primary);
+}
+
+/* Booking Form */
+.booking-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-delicate);
+  border-radius: var(--radius-xl);
+  padding: 42px 38px;
+  box-shadow: var(--shadow-md);
+}
+
+.booking-card h2 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.booking-card p.form-note {
+  font-size: 13px;
+  color: var(--slate-500);
+  margin-bottom: 26px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--slate-700);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-delicate);
+  background: var(--bg-page);
+  color: var(--slate-900);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(201, 59, 116, 0.12);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 14px;
+}
+
+.form-status {
+  margin-top: 18px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  line-height: 1.5;
+  display: none;
+}
+
+.form-status.show {
+  display: block;
+}
+
+.form-status.success {
+  background: #eef8f2;
+  color: #176d3f;
+  border: 1px solid #b7e3ca;
+}
+
+/* ==========================================================================
+   Footer (Seamless, refined, non-jarring finish)
+   ========================================================================== */
+.footer {
+  background-color: #192533;
+  color: #e2e8ee;
+  padding: 56px max(5vw, 24px) 24px;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .brand-title {
+  color: #ffffff;
+}
+
+.footer .brand-subtitle {
+  color: #f7a8c5;
+}
+
+.footer .brand-tagline {
+  color: #a4b3c2;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  font-size: 13px;
+  color: #c4d1de;
+}
+
+.footer-nav a:hover {
+  color: #ffffff;
+}
+
+.footer-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  font-size: 11.5px;
+  color: #8c9dae;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-copy {
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .trust-row {
+    justify-content: center;
+  }
+
+  .about-card-wrapper {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 36px 28px;
+  }
+
+  .about-photo-frame {
+    height: 320px;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    height: 72px;
+    padding: 0 18px;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    flex-direction: column;
+    padding: 16px 24px 24px;
+    gap: 0;
+    border-bottom: 1px solid var(--border-delicate);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav.open {
+    display: flex;
+  }
+
+  .nav a {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-delicate);
+    width: 100%;
+  }
+
+  .nav a.active::after {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .phone-link {
+    display: none;
+  }
+
+  .header-cta {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .section {
+    padding: 48px 18px;
+  }
+
+  .hero {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .portrait-image-wrapper {
+    height: 380px;
+  }
+
+  .badge-doctor-info {
+    bottom: 12px;
+    left: 6px;
+    padding: 8px 12px;
+  }
+
+  .badge-doctor-rating {
+    top: 14px;
+    right: 6px;
+    padding: 8px 12px;
+  }
+
+  .badge-text strong {
+    font-size: 11.5px;
+  }
+
+  .badge-text span {
+    font-size: 10px;
+  }
+
+  .service-grid,
+  .review-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-card,
+  .contact-info-card {
+    padding: 28px 20px;
+  }
+
+  .footer {
+    padding: 40px 18px 20px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
